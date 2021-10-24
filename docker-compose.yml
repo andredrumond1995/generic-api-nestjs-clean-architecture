@@ -1,0 +1,19 @@
+version: '3.3'
+services:
+  nestjs-clean-architecture:
+    container_name: nestjs-clean-architecture
+    build: 
+      context: './'
+      dockerfile: ./docker/api.dockerfile
+    environment:
+      NODE_ENV: production
+      api_version: "1.0.0"
+    expose:
+      - '3001'
+    ports:
+      - '3001:3001'
+    networks:
+      - prod
+networks:
+  prod:
+    external: true
